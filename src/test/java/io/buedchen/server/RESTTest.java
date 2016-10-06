@@ -195,7 +195,7 @@ public class RESTTest extends JerseyTest{
     @Test
     public void getChannelContentTest() throws Exception {
         Channel channel = new Channel("testChannel","testChannel description");
-        Map<String, Channel> channelMap = new HashMap<String, Channel>();
+        Map<String, Channel> channelMap = new HashMap<>();
         channelMap.put("testChannel", channel);
 
         when(channels.getChannels()).thenReturn(channelMap);

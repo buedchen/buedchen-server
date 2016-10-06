@@ -119,7 +119,8 @@ public class Providers {
         if (!this.projects.getProjects().containsKey(projectId)) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.ok(this.projects.getProjectDashboards(projectId)).build();
+        List<Dashboard> dashboardsList = new ArrayList<>(this.projects.getProjectDashboards(projectId).values());
+        return Response.ok(dashboardsList).build();
     }
 
     @GET
