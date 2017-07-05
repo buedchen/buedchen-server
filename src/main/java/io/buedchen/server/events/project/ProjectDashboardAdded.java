@@ -2,6 +2,8 @@ package io.buedchen.server.events.project;
 
 import io.buedchen.server.Dashboard;
 
+import java.util.Objects;
+
 public class ProjectDashboardAdded {
 
     private final String projectId;
@@ -20,4 +22,17 @@ public class ProjectDashboardAdded {
         return dashboard;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProjectDashboardAdded that = (ProjectDashboardAdded) o;
+        return Objects.equals(projectId, that.projectId) &&
+                Objects.equals(dashboard, that.dashboard);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(projectId, dashboard);
+    }
 }
